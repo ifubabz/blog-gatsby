@@ -1,10 +1,16 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
+import {
+  TitleTypography,
+  DateTypography,
+  ContentTypography,
+  NavButton,
+  DefaultLink,
+} from "../components/styledTemplate"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -20,33 +26,20 @@ class BlogPostTemplate extends React.Component {
         />
         <article>
           <header>
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                marginBottom: 0,
-              }}
-            >
-              {post.frontmatter.title}
-            </h1>
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: `block`,
-                marginBottom: rhythm(1),
-              }}
-            >
-              {post.frontmatter.date}
-            </p>
+            <TitleTypography>{post.frontmatter.title}</TitleTypography>
+            <DateTypography>{post.frontmatter.date}</DateTypography>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <section>
+            <ContentTypography>
+              <p dangerouslySetInnerHTML={{ __html: post.html }} />
+            </ContentTypography>
+          </section>
           <hr
             style={{
               marginBottom: rhythm(1),
             }}
           />
-          <footer>
-            <Bio />
-          </footer>
+          <footer>{/* <Bio /> */}</footer>
         </article>
 
         <nav>
@@ -61,16 +54,16 @@ class BlogPostTemplate extends React.Component {
           >
             <li>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
+                <DefaultLink to={previous.fields.slug} rel="prev">
+                  <NavButton>← {previous.frontmatter.title}</NavButton>
+                </DefaultLink>
               )}
             </li>
             <li>
               {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
+                <DefaultLink to={next.fields.slug} rel="next">
+                  <NavButton>{next.frontmatter.title} →</NavButton>
+                </DefaultLink>
               )}
             </li>
           </ul>

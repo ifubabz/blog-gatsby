@@ -1,7 +1,7 @@
 import React from "react"
 import { AppBar, Toolbar } from "@material-ui/core"
 import { withStyles } from "@material-ui/core/styles"
-import { Link } from "gatsby"
+import { DefaultLink } from "../components/styledTemplate"
 
 const useStyles = theme => ({
   root: {
@@ -17,22 +17,12 @@ const useStyles = theme => ({
 
 class Header extends React.Component {
   render() {
-    const { title, classes } = this.props
+    const { title } = this.props
     return (
-      <div>
+      <div style={{ marginBottom: 50 }}>
         <AppBar position="fixed" color="#ffffff">
           <Toolbar>
-            <Link
-              style={{
-                boxShadow: `none`,
-                textDecoration: `none`,
-                color: `inherit`,
-                fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-              }}
-              to={`/`}
-            >
-              {title}
-            </Link>
+            <DefaultLink to={`/`}>{title}</DefaultLink>
           </Toolbar>
         </AppBar>
       </div>

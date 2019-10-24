@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ce8ec51a-c28b-4610-bfe6-dde4bbf7a00e/deploy-status)](https://app.netlify.com/sites/ethanblog/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/13ee6cdc-29ef-4d8b-bb30-02e367f41a39/deploy-status)](https://app.netlify.com/sites/ifubabz/deploys)
 
 # Ethan Blog Site Repository
 

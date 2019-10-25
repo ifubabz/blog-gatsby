@@ -20,7 +20,7 @@ class Header extends React.Component {
     const { title } = this.props
     return (
       <div style={{ marginBottom: 50 }}>
-        <AppBar position="fixed" color="#ffffff">
+        <AppBar position="fixed" color="default">
           <Toolbar>
             <DefaultLink to={`/`}>{title}</DefaultLink>
           </Toolbar>

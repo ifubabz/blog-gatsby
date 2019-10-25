@@ -30,9 +30,9 @@ class BlogPostTemplate extends React.Component {
             <DateTypography>{post.frontmatter.date}</DateTypography>
           </header>
           <section>
-            <ContentTypography>
-              <p dangerouslySetInnerHTML={{ __html: post.html }} />
-            </ContentTypography>
+            <ContentTypography
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            ></ContentTypography>
           </section>
           <hr
             style={{

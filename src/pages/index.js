@@ -34,13 +34,11 @@ class BlogIndex extends React.Component {
                 <DateTypography>{node.frontmatter.date}</DateTypography>
               </header>
               <section>
-                <PreViewTypography>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: node.excerpt,
-                    }}
-                  />
-                </PreViewTypography>
+                <PreViewTypography
+                  dangerouslySetInnerHTML={{
+                    __html: node.excerpt,
+                  }}
+                ></PreViewTypography>
               </section>
             </article>
           )

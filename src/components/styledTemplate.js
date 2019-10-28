@@ -47,6 +47,7 @@ export const ContentTypography = styled(Typography)({
   color: "#000000",
   marginTop: "40px",
   marginBottom: "20px",
+  lineHeight: "1.8",
 })
 
 export const NavButton = styled(Button)({

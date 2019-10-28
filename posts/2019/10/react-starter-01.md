@@ -1,5 +1,5 @@
 ---
-title: "[React]] React Web 개발 (1)"
+title: "[React] React Web 개발 (1)"
 date: "2019-10-24T16:12:03.284Z"
 description: "React로 Web 개발 시작하기"
 category: develop
@@ -64,9 +64,67 @@ class Welcome extends React.Component {
     return <h1>Hello {this.props.name}</h1>
   }
 }
+
 Welcome.defaultProps = {
   name: "Default Name",
 }
 ```
 
 ## state로 데이터 관리하기
+컴포넌트는 무엇인가를 기억하기 위해 `state`를 사용합니다.
+React 컴포넌트는 생성자에 `this.state`를 설정하여 `state`를 사용할 수 있습니다. 
+`this.state`는 정의된 React 컴포넌트의 `private`한 객체로 생각해야 합니다.
+`state`는 `this.setState` 메소드를 통해 값을 설정할 수 있습니다.
+
+```javascript
+class Welcome extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0,
+    }
+  }
+  render() {
+    return (
+      <div>
+        <h1>Hello {this.props.name}</h1>
+        <h2>{this.state.value}</h2>
+        <button onClick={() => this.setState(
+              {value: this.state.value+1}
+            )}
+        >+
+        </button>
+      </div>
+    )
+  }
+}
+```
+
+별도의 메소드를 호출하는 형태로 구현할 수 있고 이전 `state`와 `props`를 메소드 내에서 참조할 수도 있습니다.
+
+```javascript
+class Welcome extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0,
+    }
+  }
+  updateValue() {
+    this.setState((prevState, props) => {
+      return { value: prevState.value + 1 }
+    });
+  }
+  render() {
+    return (
+      <div>
+        <h1>Hello {this.props.name}</h1>
+        <h2>{this.state.value}</h2>
+        <button onClick={() => this.updateValue()}>
+      </div>
+    )
+  }
+}
+```
+## 함수형 컴포넌트
+

@@ -1,5 +1,5 @@
 ---
-title: "[React] React Web 개발 (1)"
+title: "[React] React 시작하기"
 date: "2019-10-24T16:12:03.284Z"
 description: "React로 Web 개발 시작하기"
 category: develop
@@ -71,15 +71,16 @@ Welcome.defaultProps = {
 ```
 
 ## state로 데이터 관리하기
+
 컴포넌트는 무엇인가를 기억하기 위해 `state`를 사용합니다.
-React 컴포넌트는 생성자에 `this.state`를 설정하여 `state`를 사용할 수 있습니다. 
+React 컴포넌트는 생성자에 `this.state`를 설정하여 `state`를 사용할 수 있습니다.
 `this.state`는 정의된 React 컴포넌트의 `private`한 객체로 생각해야 합니다.
 `state`는 `this.setState` 메소드를 통해 값을 설정할 수 있습니다.
 
 ```javascript
 class Welcome extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       value: 0,
     }
@@ -89,10 +90,8 @@ class Welcome extends React.Component {
       <div>
         <h1>Hello {this.props.name}</h1>
         <h2>{this.state.value}</h2>
-        <button onClick={() => this.setState(
-              {value: this.state.value+1}
-            )}
-        >+
+        <button onClick={() => this.setState({ value: this.state.value + 1 })}>
+          +
         </button>
       </div>
     )
@@ -101,6 +100,7 @@ class Welcome extends React.Component {
 ```
 
 별도의 메소드를 호출하는 형태로 구현할 수 있고 이전 `state`와 `props`를 메소드 내에서 참조할 수도 있습니다.
+`onClick` 속성에 메소드를 실행하도록 설정하고 해당 메소드 내에서 `this.setState()`를 실행합니다.
 
 ```javascript
 class Welcome extends React.Component {
@@ -126,5 +126,32 @@ class Welcome extends React.Component {
   }
 }
 ```
+
 ## 함수형 컴포넌트
 
+함수형 컴포넌트는 보다 간단하게 컴포넌트를 작성하는 방법이고 `state` 없이 `render` 함수만을 가집니다.  
+`React.Component`를 확장하는 클래스를 정의하는 대신 `props`를 입력받아서 렌더링할 대상을 반환하는 함수를 작성할 수 있습니다.
+함수형 컴포넌트는 클래스로 작성하는 것보다 빠르게 작성할 수 있으며 많은 컴포넌트를 함수 컴포넌트로 표현할 수 있습니다.
+함수 내부에서 `this.props` 대신 매개변수로 받은 `props` 객체를 사용할 수 있습니다.
+
+```javascript
+function Welcome(props) {
+  return <h1>Hello {props.name}</h1>
+}
+```
+
+## JSX
+
+JSX는 JavaScript를 확장한 문법입니다. UI가 어떻게 생겨야 하는지 설명하기 위해 React와 함께 사용할 것을 권장합니다.
+JSX에는 JavaScript의 모든 기능이 포함되어 있고 React “엘리먼트(element)” 를 생성합니다.  
+컴파일이 끝나면, JSX 표현식이 정규 JavaScript 함수 호출이 되고 JavaScript 객체로 인식됩니다. 태그가 비어있다면 XML처럼 /> 를 이용해 바로 닫아주어야 합니다.  
+속성에 따옴표를 이용해 문자열 리터럴을 정의할 수 있고 중괄호를 사용하여 어트리뷰트에 JavaScript 표현식을 삽입할 수도 있습니다.
+
+```javascript
+const element1 = <div tabIndex="0"></div>
+
+const element2 = <img src={user.imageURL}></img>
+```
+
+기본적으로 React DOM은 JSX에 삽입된 모든 값을 렌더링하기 전에 이스케이프 하므로, 애플리케이션에서 명시적으로 작성되지 않은 내용은 주입되지 않습니다.
+모든 항목은 렌더링 되기 전에 문자열로 변환됩니다. 이런 특성으로 인해 XSS (cross-site-scripting) 공격을 방지할 수 있습니다.

@@ -6,6 +6,9 @@ themeGithub.overrideThemeStyles = () => {
     "a.gatsby-resp-image-link": {
       boxShadow: `none`,
     },
+    h2: {
+      marginTop: `5rem`,
+    },
   }
 }
 

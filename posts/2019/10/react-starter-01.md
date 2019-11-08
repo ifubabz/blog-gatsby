@@ -127,19 +127,6 @@ class Welcome extends React.Component {
 }
 ```
 
-## 함수형 컴포넌트
-
-함수형 컴포넌트는 보다 간단하게 컴포넌트를 작성하는 방법이고 `state` 없이 `render` 함수만을 가집니다.  
-`React.Component`를 확장하는 클래스를 정의하는 대신 `props`를 입력받아서 렌더링할 대상을 반환하는 함수를 작성할 수 있습니다.
-함수형 컴포넌트는 클래스로 작성하는 것보다 빠르게 작성할 수 있으며 많은 컴포넌트를 함수 컴포넌트로 표현할 수 있습니다.
-함수 내부에서 `this.props` 대신 매개변수로 받은 `props` 객체를 사용할 수 있습니다.
-
-```javascript
-function Welcome(props) {
-  return <h1>Hello {props.name}</h1>
-}
-```
-
 ## JSX
 
 JSX는 JavaScript를 확장한 문법입니다. UI가 어떻게 생겨야 하는지 설명하기 위해 React와 함께 사용할 것을 권장합니다.
@@ -155,3 +142,37 @@ const element2 = <img src={user.imageURL}></img>
 
 기본적으로 React DOM은 JSX에 삽입된 모든 값을 렌더링하기 전에 이스케이프 하므로, 애플리케이션에서 명시적으로 작성되지 않은 내용은 주입되지 않습니다.
 모든 항목은 렌더링 되기 전에 문자열로 변환됩니다. 이런 특성으로 인해 XSS (cross-site-scripting) 공격을 방지할 수 있습니다.
+
+## 함수형 컴포넌트
+
+함수형 컴포넌트는 보다 간단하게 컴포넌트를 작성하는 방법이고 `state` 없이 `render` 함수만을 가집니다.  
+`React.Component`를 확장하는 클래스를 정의하는 대신 `props`를 입력받아서 렌더링할 대상을 반환하는 함수를 작성할 수 있습니다.
+함수형 컴포넌트는 클래스로 작성하는 것보다 빠르게 작성할 수 있으며 많은 컴포넌트를 함수 컴포넌트로 표현할 수 있습니다.
+함수 내부에서 `this.props` 대신 매개변수로 받은 `props` 객체를 사용할 수 있습니다.
+
+```javascript
+function Welcome(props) {
+  return <h1>Hello {props.name}</h1>
+}
+```
+
+## HOOKS
+
+React Hooks는 React v16.8 부터 지원되고 있는 기능으로 class없이 state를 사용할 수 있는 기능입니다.
+`useState` 함수를 통해 `state`를 선언하고 값을 설정할 수 있습니다. `0`을 초기값으로 하는 `count` 변수를 선언하는 코드입니다. 변수와 함게 반환되는 set변수 함수를 통해서 값을 설정할 수 있습니다.
+
+```javascript
+import React, { useState } from "react"
+
+function Example() {
+  // "count"라는 새 상태 변수를 선언합니다
+  const [count, setCount] = useState(0)
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  )
+}
+```

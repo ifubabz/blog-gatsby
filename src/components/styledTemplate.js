@@ -45,7 +45,7 @@ export const DateTypography = styled(Typography)({
 export const PreViewTypography = styled(Typography)({
   fontSize: "16px",
   color: "#9e9e9e",
-  marginBottom: "60px",
+  marginBottom: "4rem",
 })
 
 export const ContentTypography = styled(Typography)({

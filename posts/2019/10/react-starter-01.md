@@ -158,8 +158,9 @@ function Welcome(props) {
 
 ## HOOKS
 
-React Hooks는 React v16.8 부터 지원되고 있는 기능으로 class없이 state를 사용할 수 있는 기능입니다.
-`useState` 함수를 통해 `state`를 선언하고 값을 설정할 수 있습니다. `0`을 초기값으로 하는 `count` 변수를 선언하는 코드입니다. 변수와 함게 반환되는 set변수 함수를 통해서 값을 설정할 수 있습니다.
+React Hooks는 React v16.8 부터 지원되고 있는 기능으로 class없이 state를 사용할 수 있는 기능입니다. 함수형 컴포넌트에서도 상태 관리를 할 수 있는 useState 함수와 렌더링 직후 작업을 설정하는 useEffect 등의 기능을 제공하여 함수형 컴포넌트에서 할 수 없었던 다양한 작업을 할 수 있게 되었습니다.
+
+`useState` 함수를 통해 `state`를 선언하고 값을 설정할 수 있습니다. `0`을 초기값으로 하는 `count` 변수를 선언하는 코드입니다. 변수와 함게 반환되는 set변수 함수를 통해서 값을 설정할 수 있습니다. 반환되는 배열의 첫 번째가 변수이고 두 번째가 `setState` 역할을 담당하는 함수입니다.
 
 ```javascript
 import React, { useState } from "react"
